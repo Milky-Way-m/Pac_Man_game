@@ -17,7 +17,7 @@ map1 = [
     "#                   #",
     "#####################"
 ]
-def is_walkable(new_x,new_y):
+def is_walkable(new_y,new_x):
     if map1[new_y][new_x] == ' ':
         return True
     else:
