@@ -24,6 +24,8 @@ def bfs(game_map,ghost_x,ghost_y,player_x,player_y):
     while c != (ghost_x,ghost_y):
         b.append(c)
         c = parent[c]
+    if len(b) == 0:
+        return None
     return b[-1]
 class Ghost:
     def __init__(self,ghost_x,ghost_y):

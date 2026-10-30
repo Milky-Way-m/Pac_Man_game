@@ -28,6 +28,9 @@ def game(stdscr):
                 player_x = x_new
 
                 stdscr.addch(player_y, player_x, '@')
+        if player_x == ghost.ghost_x and player_y == ghost.ghost_y:
+            break
+
         if now_time - last_time >= 0.5:
             old_ghost_x = ghost.ghost_x
             old_ghost_y = ghost.ghost_y
@@ -35,9 +38,15 @@ def game(stdscr):
             stdscr.addch(old_ghost_y,old_ghost_x,' ')
             stdscr.addch(ghost.ghost_y,ghost.ghost_x, 'G')
             last_time = now_time
+        if player_x == ghost.ghost_x and player_y == ghost.ghost_y:
+            break
 
         stdscr.refresh()
-
+    stdscr.nodelay(False)
+    stdscr.clear()
+    stdscr.addstr(4, 10, "Ты проиграл! :(")
+    stdscr.refresh()
+    stdscr.getch()
 # Вместо простого curses.wrapper(game) напишите:
 if __name__ == "__main__":
     try:
